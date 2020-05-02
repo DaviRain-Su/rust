@@ -1,0 +1,4 @@
+{
+    "rust.cfg_test": true,
+    "rust.build_on_save": true
+}
