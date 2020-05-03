@@ -1,1 +1,0 @@
-/Users/suyinrong/rust/communicator/target/debug/libcommunicator.rlib: /Users/suyinrong/rust/communicator/src/client.rs /Users/suyinrong/rust/communicator/src/lib.rs /Users/suyinrong/rust/communicator/src/network/mod.rs /Users/suyinrong/rust/communicator/src/network/server.rs
