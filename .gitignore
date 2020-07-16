@@ -2,3 +2,4 @@
 target
 .dist
 a.out
+.DS_Store
