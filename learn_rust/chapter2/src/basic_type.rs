@@ -22,7 +22,7 @@
 /// 也可以通过as 操作符将bool类型转换成数字0和1,
 /// 但是rust并不支持将数字转换为bool类型
 pub fn bool_type(){
-    let x = true;
+    let _x = true;
     let y: bool = false;
     let x = 5;
     if x > 1 {
@@ -92,14 +92,14 @@ pub fn bool_type(){
 /// 常量值，比如INFINITY, NEG_INFINITY, NAN, MIN, MAX.
 /// 
 pub fn number_type(){
-    let num = 42u32;
-    let num: u32 = 42;
-    let num = 0x2A;
-    let num = 0o106;
-    let num = 0b1101_1011;
+    let _num = 42u32;
+    let _num: u32 = 42;
+    let _num = 0x2A;
+    let _num = 0o106;
+    let _num = 0b1101_1011;
     assert_eq!(b'*', 42u8);
     assert_eq!(b'\'', 39u8);
-    let num = 3.1415926f64;
+    let _num = 3.1415926f64;
     assert_eq!(-3.14, -3.14f64);
     assert_eq!(2., 2.0f64);
     assert_eq!(2e4, 20000f64);
@@ -133,7 +133,7 @@ pub fn number_type(){
 /// 数，格式为'\xHH',
 /// 可以使用as操作符将字符转为数字类型
 pub fn char_type(){
-    let x = 'r';
+    let _x = 'r';
     println!("{}", '\'');
     println!("{}", '\\');
     println!("{}", '\n');
@@ -176,7 +176,7 @@ pub fn char_type(){
 /// 对于原始固定长度数组，只有实现Copy trait 的类型才能作为其元素。未来Rust还将支持
 /// VLA（variable-length array）数组，即可变长度数组。对于可变长度数组，将会基于可以在栈上动态内存的函数来实现。
 pub fn array_type(){
-    let arr: [i32; 3] = [1, 2, 3];
+    let _arr: [i32; 3] = [1, 2, 3];
     let mut mut_arr = [1, 2, 3];
     assert_eq!(1, mut_arr[0]);
     mut_arr[0] = 3;
