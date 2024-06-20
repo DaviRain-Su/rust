@@ -42,6 +42,28 @@ impl IsEmoji for char {
     }
 }
 
+//根据错误信息显示,`Spliceable`特征并不是"对象安全"的,因此无法作为特征对象使用。错误信息提供了以下解释:
+//
+//1. `E0038: 特征 `Spliceable` 不能被转换为对象`:
+//   - 对于一个特征来说,要成为"对象安全"的,需要允许构建虚拟方法表(vtable)来动态解析方法调用。
+//   - 这里的问题是,`Spliceable`特征中的`splice`方法在参数和返回类型中引用了`Self`类型,这使得该特征无法成为对象安全的。
+//
+//2. `E0277: 类型为 `dyn Spliceable` 的值的大小无法在编译时确定`:
+//   - 这个错误与上一个错误相关。由于`Spliceable`特征不是对象安全的,因此无法将其用作特征对象(`dyn Spliceable`),因为编译器无法在编译时确定特征对象的大小。
+//
+//该参考资料建议,为了使特征成为对象安全的,可以考虑将`splice`方法移到另一个特征中,正如帮助信息中提到的。
+//
+//总之,问题在于`Spliceable`特征由于`splice`方法的定义方式而不是对象安全的,这阻止了它作为特征对象的使用。建议的解决方案是重构该特征以使其成为对象安全的。
+
+//pub trait Spliceable {
+//  fn splice(&self, other: &Self) -> Self;
+//}
+
+//pub fn splice_anything(left: &dyn Spliceable, right: &dyn Spliceable) {
+//    let combo = left.splice(right);
+//    todo!("Implement this function")
+//}
+
 fn main() -> std::io::Result<()> {
     let mut local_file = File::create("hello.txt")?;
     saye_hello(&mut local_file)?;
