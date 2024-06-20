@@ -92,3 +92,53 @@ cargo clean
 - cargo test 测试项目。
 - cargo publish 发布项目。
 - cargo clean 清理项目。
+
+## 2.4 Rust函数
+
+Rust函数是一段代码，用于执行特定的任务。
+
+```rust
+// 函数定义使用fn关键字
+// 函数名是gcd
+// 参数是a和b
+// 返回值是u32类型,使用 -> 符号
+fn gcd(a: u32, b: u32) -> u32 {
+    if b == 0 {
+        // 返回值
+        // 这是一个if的表达式的true分支，直接返回一个表达式
+        // a 是一个表达式
+        a
+    } else {
+        // 这是一个if的表达式的false分支，直接返回一个表达式
+        gcd(b, a % b)
+    }
+}
+```
+
+Rust中使用花括号{}包起来的代码块是一个作用域，都可以用作表达式。
+
+```rust
+{
+    println!("evaluating cos x");
+    x.cos()
+}
+```
+
+## 2.5 编写测试和运行
+
+Rust中的测试是一个函数，它使用test属性标记。`#[test]` 属性是一个测试函数的标记。
+
+```rust
+#[test]
+fn test_gcd() {
+    assert_eq!(gcd(14, 15), 1);
+    assert_eq!(gcd(100, 10), 10);
+    assert_eq!(gcd(27, 9), 9);
+}
+```
+
+使用cargo test命令运行测试。
+
+```shell
+cargo test
+```
