@@ -1,11 +1,29 @@
+// use the std::env module to get the command-line arguments
+use std::env;
+// import the FromStr trait from the std::str module, because we need to parse the arguments
+// use u64::from_str parse string to u64
+use std::str::FromStr;
+
 fn main() {
-    let n = 14;
-    let m = 15;
+    let mut numbers = Vec::new();
+
+    for arg in env::args().skip(1) {
+        numbers.push(u64::from_str(&arg).expect("error parsing argument"));
+    }
+
+    if numbers.len() == 0 {
+        eprintln!("Usage: gcd NUMBER ...");
+        std::process::exit(1);
+    }
+
+    let mut d = numbers[0];
+    for m in &numbers[1..] {
+        d = gcd(d, *m);
+    }
+
     println!(
-        "The greatest common divisor of {} and {} is {}",
-        n,
-        m,
-        gcd(n, m)
+        "The greatest common divisor of the numbers {:?} is {}",
+        numbers, d
     );
 }
 
