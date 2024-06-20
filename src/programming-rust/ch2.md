@@ -142,3 +142,67 @@ fn test_gcd() {
 ```shell
 cargo test
 ```
+
+## 2.6 处理命令行参数
+
+Rust中的main函数有一个参数，这个参数是一个字符串数组。
+
+```rust
+fn main() {
+    // 获取命令行参数
+    let args: Vec<String> = std::env::args().collect();
+    // 打印命令行参数
+    println!("{:?}", args);
+}
+```
+通过命令行传入参数计算两个数的最大公约数
+
+```rust
+// 引入标准库的env模块，提供了与执行环境交互的函数
+// args()函数返回一个迭代器，迭代器的元素是字符串
+use std::env;
+// 将标准库的FromStr trait引入作用域,这个trait定义了一个from_str方法
+// 使用u64::from_str方法将字符串转换为u64类型
+use std::str::FromStr;
+
+// main函数没有返回值，因此这里省略了 -> ()
+fn main() {
+
+    // 定义一个可变的u64类型的数组，用于存储命令行参数
+    // 类型是通过推断出来的Vec<u64>类型
+    // numbers.push(u64::from_str(&arg).expect("error parsing argument")) 推断出来的类型是u64
+    let mut numbers = Vec::new();
+
+    // args()函数返回一个迭代器，迭代器的元素是字符串
+    // skip(1)函数跳过第一个参数，第一个参数是程序的名称
+    // for循环迭代器中的每一个元素
+    // arg是迭代器中的每一个元素
+    // u64::from_str(&arg)将字符串转换为u64类型
+    // expect("error parsing argument")是一个错误处理函数，如果转换失败，打印错误信息
+    // 将转换成功的u64类型的值添加到numbers数组中
+    for arg in env::args().skip(1) {
+        numbers.push(u64::from_str(&arg).expect("error parsing argument"));
+    }
+
+    if numbers.len() == 0 {
+        // 打印错误信息 使用eprintln!宏
+        eprintln!("Usage: gcd NUMBER ...");
+        // 显示的调用exit函数，返回1，表示错误
+        std::process::exit(1);
+    }
+
+    let mut d = numbers[0];
+    // 这里的&numbers[1..]是一个切片，切片是一个引用,引用是一个指向数据的指针
+    // 这里仅仅是在借用数据，不会拷贝数据。
+    // 这里的m是一个引用
+    // 这里的*是解引用操作符
+    for m in &numbers[1..] {
+        d = gcd(d, *m);
+    }
+
+    println!(
+        "The greatest common divisor of the numbers {:?} is {}",
+        numbers, d
+    );
+}
+```
