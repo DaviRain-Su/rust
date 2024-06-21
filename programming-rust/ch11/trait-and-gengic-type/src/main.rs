@@ -64,6 +64,26 @@ impl IsEmoji for char {
 //    todo!("Implement this function")
 //}
 
+pub trait Visible {
+    fn visible(&self) -> bool;
+}
+
+//pub trait Creature: Visible {
+//    fn position(&self) -> (i32, i32);
+//    fn facing(&self) -> f64;
+//}
+
+// NOTE: this is another way to define the Creature trait
+// 通过将`Visible`特征作为超特征(supertrait)来定义`Creature`特征,可以确保`Creature`特征的实现也必须实现`Visible`特征。
+// 子trait只是对Self类型限界的简写
+pub trait Creature
+where
+    Self: Visible,
+{
+    fn position(&self) -> (i32, i32);
+    fn facing(&self) -> f64;
+}
+
 fn main() -> std::io::Result<()> {
     let mut local_file = File::create("hello.txt")?;
     saye_hello(&mut local_file)?;
