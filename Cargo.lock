@@ -345,6 +345,13 @@ name = "ch14-closure"
 version = "0.1.0"
 
 [[package]]
+name = "ch15-iterator"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
 name = "convert_case"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
