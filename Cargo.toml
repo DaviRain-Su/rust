@@ -5,6 +5,6 @@ members = [
     "programming-rust/ch15-iterator",
     "programming-rust/ch2/*",
     "programming-rust/ch3-basic-type",
-    "geek-time/hello-world",
+    "geek-time/*",
 ]
 resolver = "2"
