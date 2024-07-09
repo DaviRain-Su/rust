@@ -1,3 +1,10 @@
 [workspace]
-members = [ "programming-rust/ch11/trait-and-gengic-type", "programming-rust/ch14-closure", "programming-rust/ch15-iterator","programming-rust/ch2/*", "programming-rust/ch3-basic-type"]
+members = [
+    "programming-rust/ch11/trait-and-gengic-type",
+    "programming-rust/ch14-closure",
+    "programming-rust/ch15-iterator",
+    "programming-rust/ch2/*",
+    "programming-rust/ch3-basic-type",
+    "geek-time/hello-world",
+]
 resolver = "2"
