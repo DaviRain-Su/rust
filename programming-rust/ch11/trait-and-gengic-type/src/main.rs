@@ -23,22 +23,22 @@ impl IsEmoji for char {
         let c = *self as u32;
 
         // https://en.wikipedia.org/wiki/Emoji#Unicode_blocks
-        (c >= 0x1F600 && c <= 0x1F64F)
-            || (c >= 0x1F300 && c <= 0x1F5FF)
-            || (c >= 0x1F680 && c <= 0x1F6FF)
-            || (c >= 0x1F700 && c <= 0x1F77F)
-            || (c >= 0x1F780 && c <= 0x1F7FF)
-            || (c >= 0x1F800 && c <= 0x1F8FF)
-            || (c >= 0x1F900 && c <= 0x1F9FF)
-            || (c >= 0x1FA00 && c <= 0x1FA6F)
-            || (c >= 0x2600 && c <= 0x26FF)
-            || (c >= 0x2700 && c <= 0x27BF)
-            || (c >= 0x2300 && c <= 0x23FF)
-            || (c >= 0x2B50 && c <= 0x2B5F)
-            || (c >= 0x2B06 && c <= 0x2B07)
-            || (c >= 0x2B50 && c <= 0x2B5F)
-            || (c >= 0x2934 && c <= 0x2935)
-            || (c >= 0x3297 && c <= 0x3299)
+        (0x1F600..=0x1F64F).contains(&c)
+            || (0x1F300..=0x1F5FF).contains(&c)
+            || (0x1F680..=0x1F6FF).contains(&c)
+            || (0x1F700..=0x1F77F).contains(&c)
+            || (0x1F7F..=0x1F780).contains(&c)
+            || (0x1F800..=0x1F8FF).contains(&c)
+            || (0x1F900..=0x1F9FF).contains(&c)
+            || (0x1FA00..=0x1FA6F).contains(&c)
+            || (0x2600..=0x26FF).contains(&c)
+            || (0x2700..=0x27BF).contains(&c)
+            || (0x2300..=0x23FF).contains(&c)
+            || (0x2B50..=0x2B5F).contains(&c)
+            || (0x2B06..=0x2B07).contains(&c)
+            || (0x2B50..=0x2B5F).contains(&c)
+            || (0x2934..=0x2935).contains(&c)
+            || (0x3297..=0x3299).contains(&c)
     }
 }
 

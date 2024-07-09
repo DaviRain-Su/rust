@@ -118,6 +118,6 @@
 2. 精读 zanzibar 论文。
 3. 在理解 zanzibar 的基础上，对其精简，构建相应的 Rust 版本。
 4. 使用 nom 或者 pest 构建 zanzibar 模型的解析（user - object - relation - relation tuple）。
-5. 从社区中寻找合适的 graph databse 来存储 zanzibar 授权信息。
+5. 从社区中寻找合适的 graph database 来存储 zanzibar 授权信息。
 6. 构建 API 提供授权服务。
 7. 产品化 zanzibar 服务的建议（如何达到需要的可扩展性和服务 SLA - e.g. 99.99% uptime）。

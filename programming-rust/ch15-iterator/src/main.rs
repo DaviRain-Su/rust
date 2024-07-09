@@ -13,7 +13,7 @@ fn main() {
     println!("The result is: {}", result);
 
     // use next to iterate over a vector
-    let v = vec![4, 20, 12, 8, 6];
+    let v = [4, 20, 12, 8, 6];
     let mut iterator = v.iter();
     assert_eq!(iterator.next(), Some(&4));
     assert_eq!(iterator.next(), Some(&20));
@@ -39,7 +39,7 @@ fn main() {
     favorites.insert("Lucy in the sky with diamonds".to_string());
     favorites.insert("Liebestraume No. 3".to_string());
     favorites.insert("Bach, Brandenburg Concerto No. 3 G Major".to_string());
-    let mut it = (&favorites).into_iter();
+    let mut it = favorites.iter();
     assert_eq!(
         it.next(),
         Some("Bach, Brandenburg Concerto No. 3 G Major".to_string()).as_ref()
@@ -137,7 +137,7 @@ fn main() {
 
 pub fn trangle(n: i32) -> i32 {
     // use fold to calculate the sum of 1..=n
-    (1..=n).fold(0, |sum, item| sum + item)
+    (1..=n).sum::<i32>()
 }
 
 pub fn dump<T, U>(iter: T)

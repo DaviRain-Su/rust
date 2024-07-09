@@ -11,7 +11,7 @@ fn main() {
         numbers.push(u64::from_str(&arg).expect("error parsing argument"));
     }
 
-    if numbers.len() == 0 {
+    if numbers.is_empty() {
         eprintln!("Usage: gcd NUMBER ...");
         std::process::exit(1);
     }
@@ -40,11 +40,9 @@ pub fn gcd(mut n: u64, mut m: u64) -> u64 {
     while m != 0 {
         if m < n {
             // swap the values of m and n
-            let t = m;
-            m = n;
-            n = t;
+            std::mem::swap(&mut m, &mut n);
         }
-        m = m % n;
+        m %= n;
     }
     // return the value of n, if function body ends with an expression, it is returned
     // without a semicolon

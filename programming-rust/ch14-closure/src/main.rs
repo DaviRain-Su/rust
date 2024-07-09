@@ -26,7 +26,7 @@ impl City {
     }
 }
 
-fn _sort_cities(cities: &mut Vec<City>) {
+fn _sort_cities(cities: &mut [City]) {
     // Use function
     //cities.sort_by(city_population_descending);
     // 也可以使用闭包
@@ -46,7 +46,7 @@ pub enum Statistic {
     Mean,
 }
 
-pub fn sort_by_statistic(cities: &mut Vec<City>, stat: Statistic) {
+pub fn sort_by_statistic(cities: &mut [City], stat: Statistic) {
     cities.sort_by_key(|city| -city.get_statistic(stat))
 }
 
