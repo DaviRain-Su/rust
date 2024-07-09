@@ -1,18 +1,18 @@
-use std::{sync::OnceState, thread};
+use std::thread;
 
 #[derive(Debug)]
 pub struct City {
-    name: String,
+    _name: String,
     population: i64,
-    country: String,
+    _country: String,
 }
 
 impl City {
     pub fn new(name: &str, population: i64, country: &str) -> City {
         City {
-            name: name.to_string(),
+            _name: name.to_string(),
             population,
-            country: country.to_string(),
+            _country: country.to_string(),
         }
     }
 
@@ -26,7 +26,7 @@ impl City {
     }
 }
 
-fn sort_cities(cities: &mut Vec<City>) {
+fn _sort_cities(cities: &mut Vec<City>) {
     // Use function
     //cities.sort_by(city_population_descending);
     // 也可以使用闭包
@@ -63,24 +63,24 @@ fn main() {
     //println!("Hello, world!");
     let mut cityes = vec![
         City {
-            name: "Dubai".to_string(),
+            _name: "Dubai".to_string(),
             population: 3_137_000,
-            country: "United Arab Emirates".to_string(),
+            _country: "United Arab Emirates".to_string(),
         },
         City {
-            name: "Lima".to_string(),
+            _name: "Lima".to_string(),
             population: 9_751_717,
-            country: "Peru".to_string(),
+            _country: "Peru".to_string(),
         },
         City {
-            name: "Puebla".to_string(),
+            _name: "Puebla".to_string(),
             population: 2_704_000,
-            country: "Mexico".to_string(),
+            _country: "Mexico".to_string(),
         },
         City {
-            name: "Reykjavik".to_string(),
+            _name: "Reykjavik".to_string(),
             population: 120_000,
-            country: "Iceland".to_string(),
+            _country: "Iceland".to_string(),
         },
     ];
     println!("{:?}", cityes);
@@ -142,7 +142,7 @@ where
     closure();
 }
 
-fn call_twice<F>(closure: F)
+fn _call_twice<F>(closure: F)
 where
     F: Fn(),
 {
